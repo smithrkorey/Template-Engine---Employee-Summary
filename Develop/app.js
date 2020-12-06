@@ -5,6 +5,28 @@ const inquirer = require("inquirer");
 const path = require("path");
 const fs = require("fs");
 
+// Questions
+const inquirer = require('inquirer');
+inquirer
+  .prompt([
+    /* Pass your questions in here */
+
+  ])
+  .then(answers => {
+    // instances of each role
+    
+  })
+  .catch(error => {
+    if(error.isTtyError) {
+      // Prompt couldn't be rendered in the current environment
+    } else {
+      // Something else went wrong
+    }
+  });
+
+
+
+
 // Require/import the HTTP module
 const http = require('http');
 
