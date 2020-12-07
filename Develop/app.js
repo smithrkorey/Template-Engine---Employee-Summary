@@ -6,10 +6,11 @@ const path = require("path");
 const fs = require("fs");
 
 
-// Questions
+
 
 const teamMembers = []
 
+// Questions
 function createTeam() {
 
     inquirer
@@ -28,9 +29,9 @@ function createTeam() {
             }
 
         ]).then(userChoice => {
-            // pass in the variable
+            // pass in the memberChoice
             switch (userChoice.memberChoice) {
-                // in case userChoice
+                
                 case "Manager":
                     addManager();
                     break;
@@ -182,9 +183,21 @@ module.exports = teamMembers
 
 createTeam();
 
-
-
 const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
+
+
+//readwrite file
+//https://nodejs.dev/learn/writing-files-with-nodejs
+
+//const content = 'Some content!'
+
+// fs.writeFile('/Users/joe/test.txt', content, err => {
+//   if (err) {
+//     console.error(err)
+//     return
+//   }
+//   //file written successfully
+// })
