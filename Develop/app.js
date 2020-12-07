@@ -188,6 +188,18 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
 
+const content = render(teamMembers)
+
+fs.writeFile(outputPath, content, err => {
+   if (err) {
+     console.error(err)
+    return
+   }
+   //file written successfully
+ })
+ 
+
+
 
 //readwrite file
 //https://nodejs.dev/learn/writing-files-with-nodejs
