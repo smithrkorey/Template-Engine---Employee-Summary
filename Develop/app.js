@@ -89,6 +89,15 @@ function createTeam() {
                 teamMembers.push(manager)
 
                 createTeam();
+                const content = render(teamMembers)
+
+                fs.writeFile(outputPath, content, err => {
+                if (err) {
+                    console.error(err)
+                    return
+                }
+                //file written successfully
+                })
 
             })
 
@@ -132,11 +141,19 @@ function createTeam() {
                 teamMembers.push(engineer)
 
                 createTeam();
+                const content = render(teamMembers)
+
+                //generating html file
+                fs.writeFile(outputPath, content, err => {
+                if (err) {
+                    console.error(err)
+                    return
+                }
+                //file written successfully
+                })
 
             })
     }
-
-
 
 
     function addIntern() {
@@ -175,8 +192,18 @@ function createTeam() {
                 teamMembers.push(intern)
 
                 createTeam();
+                const content = render(teamMembers)
+
+                fs.writeFile(outputPath, content, err => {
+                if (err) {
+                    console.error(err)
+                    return
+                }
+                //file written successfully
+                })
             })
     }
+
 }
 
 module.exports = teamMembers
@@ -187,29 +214,3 @@ const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
-
-const content = render(teamMembers)
-
-fs.writeFile(outputPath, content, err => {
-   if (err) {
-     console.error(err)
-    return
-   }
-   //file written successfully
- })
- 
-
-
-
-//readwrite file
-//https://nodejs.dev/learn/writing-files-with-nodejs
-
-//const content = 'Some content!'
-
-// fs.writeFile('/Users/joe/test.txt', content, err => {
-//   if (err) {
-//     console.error(err)
-//     return
-//   }
-//   //file written successfully
-// })
